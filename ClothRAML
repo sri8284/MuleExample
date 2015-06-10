@@ -1,0 +1,37 @@
+#%RAML 0.8 
+title: Cloth API
+baseUri: http://www.sritech.com/cloth/v1
+version: v1
+/orders:
+  description:  All the order related operation wil be available here
+  displayName: orders
+  get:
+    description: It will give all the order created by the user.
+    responses:
+      200:
+        body:
+          application/json:
+            example:  | 
+              {
+                "orders":[
+                  {
+                        "custId": 1001,
+                        "quoteId": 786132581,
+                        "initialcost": 749,
+                        "status": "Initiated",
+                        "orderId": "1717755945"
+                    }
+                ]
+                
+              }
+      500:
+        body:
+          application/json:
+            example:  | 
+              {
+                "status":"500",
+                "message":"Server Eror",
+                "errorCode":"20500",
+                "developerMessage":"NullPointerException occured",
+                "userMessage":"Due some problems we are unable to process this request"
+              }
